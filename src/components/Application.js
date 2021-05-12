@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios"
 
 import "components/Application.scss";
 
@@ -6,24 +7,6 @@ import DayList from 'components/DayList'
 
 import 'components/Appointment'
 import Appointment from "components/Appointment";
-
-const days = [
-  {
-    id: 1,
-    name: "Monday",
-    spots: 2,
-  },
-  {
-    id: 2,
-    name: "Tuesday",
-    spots: 5,
-  },
-  {
-    id: 3,
-    name: "Wednesday",
-    spots: 0,
-  },
-];
 
 const appointments = [
   {
@@ -72,9 +55,16 @@ const appointments = [
   }
 ];
 
-
 export default function Application(props) {
   const [day, setDay] = useState('Monday')
+  const [days, setDays] = useState([]);
+
+  useEffect(()=>{
+    axios.get('/api/days').
+    then(response => {
+      setDays([...response.data])
+    })
+  },[])
 
   const parsedAppointments = appointments && appointments.map (appointment => <Appointment
   key={appointment.id}
@@ -112,10 +102,3 @@ export default function Application(props) {
   );
 }
 
-// const parsedInterviewers = interviewers && interviewers.map (interviewer => <InterviewerListItem 
-//   key={interviewer.id}
-//   id={interviewer.id}
-//   name={interviewer.name}
-//   avatar={interviewer.avatar}
-//   selected={interviewer.id === props.value}
-//   setInterviewer={event => props.onChange(interviewer.id)}/>)
