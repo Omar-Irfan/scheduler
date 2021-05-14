@@ -18,9 +18,7 @@ export default function useVisualMode (initial) {
     if(history.length >= 2) {
     history.pop()
     setMode(history[history.length -1])
-    console.log('history in if', history)
     } else {
-      console.log('history out of if', history)
     }
   }
 
