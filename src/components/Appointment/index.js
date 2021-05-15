@@ -3,6 +3,7 @@ import 'components/Appointment/styles.scss'
 import Header from 'components/Appointment/Header'
 import Show from 'components/Appointment/Show'
 import Empty from 'components/Appointment/Empty'
+import Error from 'components/Appointment/Error'
 import Form from 'components/Appointment/Form'
 import useVisualMode from 'hooks/useVisualMode'
 import Status from 'components/Appointment/Status'
@@ -17,6 +18,8 @@ export default function Appointment(props) {
   const CONFIRM = "CONFIRM"
   const DELETING = "DELETING"
   const EDIT = "EDIT"
+  const ERROR_SAVE = "ERROR_SAVE"
+  const ERROR_DELETE = "ERROR_DELETE"
 
   function save(name, interviewer) {
     const interview = {
@@ -24,7 +27,9 @@ export default function Appointment(props) {
       interviewer
     };
     transition(SAVING)
-    props.bookInterview(props.id, interview).then((res) => transition(SHOW))
+    props.bookInterview(props.id, interview)
+    .then((res) => transition(SHOW))
+    .catch(err => transition(ERROR_SAVE, true));
 
   }
 
@@ -32,9 +37,10 @@ export default function Appointment(props) {
     transition(CONFIRM)
   }
   function deleteStep2(id) {
-    transition(DELETING)
-    props.cancelInterview(id).
-    then((res) => transition(EMPTY))
+    transition(DELETING, true)
+    props.cancelInterview(id)
+    .then((res) => transition(EMPTY))
+    .catch(err => transition(ERROR_DELETE, true));
   }
 
   function edit() {
@@ -56,6 +62,8 @@ export default function Appointment(props) {
     name={props.interview.student} interviewer={props.interview.interviewer.id} onSave ={save} />}
     {mode === SAVING && <Status message={"Saving"}/>}
     {mode === DELETING && <Status message={"Deleting"}/>}
+    {mode === ERROR_SAVE && <Error onClose = {() => back() } message={"There was a problem saving"} />}
+    {mode === ERROR_DELETE && <Error onClose = {() => back() } message={"There was a problem deleting"}/>}
 {mode === SHOW && (
   <Show
     student={props.interview.student}
