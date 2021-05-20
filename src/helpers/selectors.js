@@ -1,3 +1,5 @@
+//Gets all appointments for a given day
+
 export function getAppointmentsForDay(state, day) {
   const filteredDays = state.days.filter((dayInList) => dayInList.name === day);
   const filteredAppointments = [];
@@ -9,6 +11,8 @@ export function getAppointmentsForDay(state, day) {
   return filteredAppointments;
 }
 
+//Gets interview details for a given interview
+
 export function getInterview(state, interview) {
   return (
     interview && {
@@ -17,6 +21,8 @@ export function getInterview(state, interview) {
     }
   );
 }
+
+//Gets all interviewers interviewing on a specific day
 
 export function getInterviewersForDay(state, day) {
   const filteredDays = state.days.filter((dayInList) => dayInList.name === day);

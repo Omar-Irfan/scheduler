@@ -1,3 +1,5 @@
+//Default template for every button in function
+
 import React from "react";
 import classnames from "classnames/bind";
 

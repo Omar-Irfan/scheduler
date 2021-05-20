@@ -1,3 +1,4 @@
+//Confirm button on the page that pops up when you try deleting
 import React from "react";
 import Button from "components/Button";
 

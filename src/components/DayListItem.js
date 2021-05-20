@@ -1,3 +1,5 @@
+//Each individual day item on the side bar
+
 import React from "react";
 import "components/DayListItem.scss";
 import classnames from "classnames/bind";

@@ -1,3 +1,5 @@
+//Index file with all logic for when each component should be called
+
 import React from "react";
 import "components/Appointment/styles.scss";
 import Header from "components/Appointment/Header";

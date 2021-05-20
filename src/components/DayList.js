@@ -1,3 +1,5 @@
+//Side bar that displays days
+
 import React from "react";
 import DayListItem from "components/DayListItem";
 

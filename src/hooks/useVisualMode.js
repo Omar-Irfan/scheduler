@@ -1,3 +1,5 @@
+//Custom hook that allows us to switch between different appointment views
+
 import { useState } from "react";
 
 export default function useVisualMode(initial) {

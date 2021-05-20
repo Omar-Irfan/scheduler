@@ -1,3 +1,5 @@
+//Loading screen when making axios requests
+
 import React from "react";
 
 export default function Empty(props) {

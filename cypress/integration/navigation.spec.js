@@ -1,3 +1,5 @@
+//End to end testing using Cypress for app navigation
+
 describe("Navigation", () => {
   it("should visit root", () => {
     cy.visit("/");

@@ -1,3 +1,5 @@
+//Empty appointment slot
+
 import React from "react";
 
 export default function Empty(props) {
