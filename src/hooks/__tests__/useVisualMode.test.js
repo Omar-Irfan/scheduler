@@ -12,14 +12,12 @@ test("useVisualMode should initialize with default value", () => {
   expect(result.current.mode).toBe(FIRST);
 });
 
-
 test("useVisualMode should transition to another mode", () => {
   const { result } = renderHook(() => useVisualMode(FIRST));
 
   act(() => result.current.transition(SECOND));
   expect(result.current.mode).toBe(SECOND);
 });
-
 
 test("useVisualMode should return to previous mode", () => {
   const { result } = renderHook(() => useVisualMode(FIRST));

@@ -1,22 +1,21 @@
-import { useState } from 'react'
+import { useState } from "react";
 
-export default function useVisualMode (initial) {
-
+export default function useVisualMode(initial) {
   const [mode, setMode] = useState(initial);
-  const [history, setHistory] = useState([initial]); 
+  const [history, setHistory] = useState([initial]);
 
   function transition(newMode, replace = false) {
     setMode(newMode);
 
     if (replace) {
-      setHistory((prev) => [...prev.slice(0, -1), newMode])
+      setHistory((prev) => [...prev.slice(0, -1), newMode]);
     } else {
       setHistory((prev) => [...prev, newMode]);
     }
   }
 
   function back() {
-    if (history.length <= 1) return;  
+    if (history.length <= 1) return;
     setHistory((prev) => [...prev.slice(0, -1)]);
     setMode(history[history.length - 2]);
   }
