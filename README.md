@@ -6,6 +6,12 @@ Interview Scheduler is a React app that allows students to book, edit and cancel
 
 ## Screenshots
 
+![Adding Interview](https://github.com/Omar-Irfan/scheduler/blob/master/screenshots/Screenshot%20from%202021-05-19%2021-30-17.png?raw=true)
+
+![Deleting Interview](https://github.com/Omar-Irfan/scheduler/blob/master/screenshots/Screenshot%20from%202021-05-19%2021-31-09.png?raw=true)
+
+![Responsive Design](https://github.com/Omar-Irfan/scheduler/blob/master/screenshots/Screenshot%20from%202021-05-19%2021-31-40.png?raw=true)
+
 ## Setup
 
 Install dependencies with `npm install`.
