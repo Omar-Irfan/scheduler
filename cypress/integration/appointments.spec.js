@@ -1,3 +1,5 @@
+//End to end testing using Cypress for appointments feature
+
 describe("Appontments", () => {
   beforeEach(() => {
     cy.request("GET", "/api/debug/reset");
